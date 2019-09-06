@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>sse-client</title>
+</head>
+<body>
+  <h1>count: <span id="cnt">0</span></h1>
+  <h1>message: <span id="msg"></span></h1>
+  <script>
+    const ev = new EventSource('./event');
+    ev.addEventListener('message', (e) => {
+      data = JSON.parse(e.data);
+      cnt.innerText = data.count;
+      msg.innerText = data.message;
+    });
+</script>
+</body>
+</html>
